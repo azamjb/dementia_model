@@ -2,7 +2,7 @@
 import whisper
 import os
 
-model = whisper.load_model("base")
+model = whisper.load_model("base") # open AI Whisper speech -> text model
 
 
 input_dir = "audio/no_dementia"
@@ -27,5 +27,6 @@ for filename in os.listdir(input_dir):
                 f.write(transcript)
 
             print(f"Saved transcript to {output_path}")
+
         except Exception as e:
             print(f"Failed to transcribe {filename}: {e}")

@@ -14,10 +14,10 @@ def extract_syntactic_features(text):
 
     Features:
 
-        - parse_tree_depth: average depth of dependency trees
-        - subordinate_clause_ratio: subordinate markers / sentence
-        - pos_bigram_entropy: diversity of part-of-speech bigrams
-        - avg_dependency_distance: mean distance between head and dependent
+        - parse_tree_depth: average depth of dependency trees (syntactic complexity)
+        - subordinate_clause_ratio: subordinate markers / sentence, for analyzing amount of subordinate clauses
+        - pos_bigram_entropy: diversity of part-of-speech bigrams, unpredictability in POS sequences
+        - avg_dependency_distance: mean distance between head and dependent (Number of words between a word and its head)
 
     """
 
@@ -28,7 +28,7 @@ def extract_syntactic_features(text):
     parse_tree_depth = sum(depths) / len(depths) if depths else 0
 
 
-    # Subordinate clause markers (e.g., "because", "although")
+    # Subordinate clause markers ("because", "although", "despite" etc)
     sub_clause_count = sum(1 for tok in doc if tok.dep_ == "mark")
     subordinate_clause_ratio = sub_clause_count / len(list(doc.sents)) if doc.sents else 0
 
@@ -46,6 +46,7 @@ def extract_syntactic_features(text):
     avg_dependency_distance = sum(dep_distances) / len(dep_distances) if dep_distances else 0
 
     return {
+
         "parse_tree_depth": round(parse_tree_depth, 2),
         "subordinate_clause_ratio": round(subordinate_clause_ratio, 3),
         "pos_bigram_entropy": round(entropy, 4),
@@ -55,5 +56,5 @@ def extract_syntactic_features(text):
 # Test case
 if __name__ == "__main__":
     
-    sample_text = "I went to the store. It was closed, so I came home. My name is Azam and I am the coolest person in the world. I am very hungry"
+    sample_text = "I went to the store. It was closed, so I came home. My name is Bob and I am the coolest person in the world. I am very hungry"
     print(extract_syntactic_features(sample_text))

@@ -16,8 +16,7 @@ def extract_pragmatic_features(text):
         - pronoun_to_noun_ratio: frequency of pronouns relative to nouns
         - filler_word_count: count of disfluencies like 'uh', 'um'
         - correction_phrase_count: phrases like "I mean", "no wait"
-        - conjunction_overuse: number of coordinating conjunctions
-
+        - conjunction_overuse: detecting overuse of simple conjunctions
     """
 
     doc = nlp(text)
@@ -34,7 +33,7 @@ def extract_pragmatic_features(text):
 
 
     # Correction phrases
-    correction_phrases = ["i mean", "no wait", "what i meant", "sorry", "let me rephrase"]
+    correction_phrases = ["i mean", "no wait", "what i meant", "sorry", "let me rephrase", "actually"]
     lower_text = text.lower()
     correction_phrase_count = sum(lower_text.count(phrase) for phrase in correction_phrases)
 
@@ -54,5 +53,5 @@ def extract_pragmatic_features(text):
 # Test case
 if __name__ == "__main__":
 
-    sample_text = "I erm went to the store. It was closed, so I uh came home. My name is Azam and I am the coolest person in the world. I am uh very very hungry"
+    sample_text = "I erm went to the store. It was closed, so I uh came home. My name is Bob and I am the coolest person in the world. I am uh very very hungry"
     print(extract_pragmatic_features(sample_text))

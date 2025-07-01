@@ -12,8 +12,8 @@ def extract_baseline_features(text):
     Features:
 
         - sentence_length: average number of words per sentence
-        - word_count: total number of words
-        - type_token_ratio: unique words / total words
+        - word_count: total number of unique words
+        - type_token_ratio: number unique words / total words in the text
         - avg_word_length: average number of characters per word
 
     """
@@ -60,4 +60,4 @@ if __name__ == "__main__":
 
 
 
-
+# need to make this take a folder path as input, storing data in a dataframe (use pandas)
