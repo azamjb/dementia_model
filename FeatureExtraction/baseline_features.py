@@ -1,4 +1,5 @@
-
+import os
+import pandas as pd
 import spacy
 
 nlp = spacy.load("en_core_web_sm")
@@ -50,14 +51,3 @@ def extract_baseline_features(text):
         "type_token_ratio": round(type_token_ratio, 4),
         "avg_word_length": round(avg_word_length, 2)
     }
-
-
-# Test case
-if __name__ == "__main__":
-
-    sample_text = "I went to the store. It was closed, so I came home."
-    print(extract_baseline_features(sample_text))
-
-
-
-# need to make this take a folder path as input, storing data in a dataframe (use pandas)

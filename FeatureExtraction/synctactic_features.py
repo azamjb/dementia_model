@@ -53,8 +53,3 @@ def extract_syntactic_features(text):
         "avg_dependency_distance": round(avg_dependency_distance, 2)
     }
 
-# Test case
-if __name__ == "__main__":
-    
-    sample_text = "I went to the store. It was closed, so I came home. My name is Bob and I am the coolest person in the world. I am very hungry"
-    print(extract_syntactic_features(sample_text))

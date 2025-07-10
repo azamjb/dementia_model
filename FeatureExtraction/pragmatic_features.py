@@ -28,7 +28,7 @@ def extract_pragmatic_features(text):
 
 
     # Filler words 
-    filler_words = {"uh", "um", "erm", "you know", "like", "er", "basically"}
+    filler_words = {"uh", "um" , "Um", "erm", "you know", "like", "er", "basically"}
     filler_word_count = sum(1 for tok in doc if tok.text.lower() in filler_words)
 
 
@@ -48,10 +48,3 @@ def extract_pragmatic_features(text):
         "correction_phrase_count": correction_phrase_count,
         "conjunction_overuse": conjunction_overuse
     }
-
-
-# Test case
-if __name__ == "__main__":
-
-    sample_text = "I erm went to the store. It was closed, so I uh came home. My name is Bob and I am the coolest person in the world. I am uh very very hungry"
-    print(extract_pragmatic_features(sample_text))
