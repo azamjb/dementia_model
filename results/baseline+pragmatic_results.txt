@@ -1,0 +1,20 @@
+5-Fold CV accuracy (train): 0.791 ± 0.073
+
+Classification report on test set:
+              precision    recall  f1-score   support
+
+  alzheimers       0.88      0.88      0.88        16
+     control       0.86      0.86      0.86        16
+
+    accuracy                           0.87        30
+   macro avg       0.87      0.87      0.87        30
+weighted avg       0.87      0.87      0.87        30
+
+Feature: sentence_length Importance: 0.1051
+Feature: word_count      Importance: 0.1219
+Feature: type_token_ratio Importance: 0.1571
+Feature: avg_word_length Importance: 0.0903
+Feature: pronoun_to_noun_ratio Importance: 0.1086
+Feature: filler_word_count Importance: 0.3015
+Feature: correction_phrase_count Importance: 0.0150
+Feature: conjunction_overuse Importance: 0.1005

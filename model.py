@@ -14,20 +14,23 @@ import sys
 
 # Redirect all output to a file
 
-with open("model1_results.txt", "w") as f:
+with open("baseline_results.txt", "w") as f:
 
     sys.stdout = f  # Redirect stdout to the file
 
-    df = pd.read_csv("model3_syntactic.csv") 
+    df = pd.read_csv("model1_baseline.csv") 
 
     # Loading CSV data into a DataFrame ^
 
+    # feature_cols = ["sentence_length","word_count","type_token_ratio","avg_word_length","parse_tree_depth","subordinate_clause_ratio","pos_bigram_entropy","avg_dependency_distance"] # - baseline + syntactic 
 
-    feature_cols = ["parse_tree_depth","subordinate_clause_ratio","pos_bigram_entropy","avg_dependency_distance"] # - syntactic 
+    # feature_cols = ["sentence_length", "word_count", "type_token_ratio", "avg_word_length", "pronoun_to_noun_ratio", "filler_word_count","correction_phrase_count","conjunction_overuse"] # - baseline + pragmatic
+
+    # feature_cols = ["parse_tree_depth","subordinate_clause_ratio","pos_bigram_entropy","avg_dependency_distance"] # - syntactic 
 
     # feature_cols = ["pronoun_to_noun_ratio", "filler_word_count","correction_phrase_count","conjunction_overuse"] # - pragmatic 
 
-    # feature_cols = ["sentence_length", "word_count", "type_token_ratio", "avg_word_length"] - baseline
+    feature_cols = ["sentence_length", "word_count", "type_token_ratio", "avg_word_length"] # - baseline
 
     # Selecting columns from dataset to use as featues (uncomment the one to be used) ^
 
@@ -78,10 +81,13 @@ with open("model1_results.txt", "w") as f:
 
 
     importances = rf.feature_importances_
+    
     for feat, imp in zip(feature_cols, importances):
+
         print(f"Feature: {feat:15} Importance: {imp:.4f}")
 
     # Outputting the feature importance ^
 
+    
 
 sys.stdout = sys.__stdout__

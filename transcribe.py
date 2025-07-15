@@ -10,6 +10,7 @@ output_dir = "transcripts/no_dementia"
 os.makedirs(output_dir, exist_ok=True)
 
 # Loop through .wav files
+
 for filename in os.listdir(input_dir):
 
     if filename.endswith(".wav"):
